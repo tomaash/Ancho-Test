@@ -1,7 +1,20 @@
-<div class="span4">
-  <div  class="container">
-    <div>
-      <h3>Welcome to {{popup_page}}</h3>
+<div class="span10">
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+        <h2>Welcome to Tamuly</h2>
+        <div ng-repeat="api in apis">
+          <h4 ng-click="selectApi($index)"><a>{{ api[0] }}</a></h4>
+          <ul ng-show="selectedApi==$index">
+            <li ng-repeat="fun in api[1]"><a ng-click="selectFun($index)">{{ fun }}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span5">
+        <span>{{ selectedTemplate }}</span>
+        <div ng-include="selectedTemplate">
+        </div>
+      </div>
     </div>
   </div>
 </div>

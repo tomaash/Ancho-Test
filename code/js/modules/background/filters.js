@@ -18,6 +18,6 @@ define(['angular'], function (angular) {
       });
       return result;
     };
-  });
+  })
 });
 
