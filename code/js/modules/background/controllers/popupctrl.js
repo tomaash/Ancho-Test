@@ -4,24 +4,37 @@ define(['util/messagingClient', 'logging'],
     var log = new logging(true, 'popupctrl', client);
     return ['$scope', '$location', '$http', function ($scope, $location, $http) {
       log.debug('popupctrl started');
-      $scope.apis = [
-        ['Extension', ['sendRequest', 'sendMessage', 'getUrl']],
-        ['Extension1', ['sendRequest1', 'sendMessage', 'getUrl']],
-        ['Extension2', ['sendRequest2', 'sendMessage', 'getUrl']],
-        ['Extension3', ['sendRequest3', 'sendMessage', 'getUrl']]
-      ]
+      $scope.apis = {
+        Extension : {
+          sendRequest: ['extensionId', 'request', 'callback'],
+          sendMessage: ['extensionId', 'message', 'callback'],
+          getUrl: ['path']
+        },
+        Tabs : {
+          sendRequest: ['extensionId', 'request', 'callback'],
+          sendMessage: ['extensionId', 'message', 'callback'],
+          getCurrent: ['callback']
+        },
+        Windows : {
+          getCurrent: ['getInfo', 'callback'],
+          create: ['createData', 'callback'],
+          update: ['windowId', 'updateInfo', 'callback']
+        }
+      };
+      $scope.keys = function (obj) {
+        return _.keys(obj);
+      };
 
       // some variable for check if angular works ok
       $scope.popup_page = 'Popup page';
       $scope.selectedApi = 0;
-      $scope.selectApi = function (idx) {
-        $scope.selectedApi = idx;
+      $scope.selectApi = function (api) {
+        $scope.selectedApi = api;
       };
 
-      $scope.selectFun = function (idx) {
-        $scope.selectedFun = idx;
-        var api = $scope.apis[$scope.selectedApi]
-        $scope.selectedTemplate = 'templates/partials/'+api[0]+"_"+api[1][idx]+".html"
+      $scope.selectFun = function (fun) {
+        $scope.selectedFun = fun;
+        $scope.selectedParameters = $scope.apis[$scope.selectedApi][fun];
       };
 
       // because this has happened asynchronously we've missed
