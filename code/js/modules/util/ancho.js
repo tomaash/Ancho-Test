@@ -1,990 +1,1862 @@
 define({
-   "api": [
+ "api": [
+  {
+   "id": "chrome.browserAction",
+   "types": [
     {
-     "id": "chrome.alarms",
-     "methods": [
+     "id": "ImageDataType",
+     "type": "imagedata"
+    },
+    {
+     "id": "ColorArray",
+     "type": {
+      "items": "integer",
+      "type": "array"
+     }
+    }
+   ],
+   "methods": [
+    {
+     "id": "enable",
+     "items": [
       {
-       "id": "create"
-      },
-      {
-       "id": "get"
-      },
-      {
-       "id": "getAll"
-      },
-      {
-       "id": "clear"
-      },
-      {
-       "id": "clearAll"
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.bookmarks",
-     "methods": [
+     "id": "setBadgeBackgroundColor",
+     "items": [
       {
-       "id": "get"
-      },
-      {
-       "id": "getChildren"
-      },
-      {
-       "id": "getRecent"
-      },
-      {
-       "id": "getTree"
-      },
-      {
-       "id": "getSubTree"
-      },
-      {
-       "id": "search"
-      },
-      {
-       "id": "create"
-      },
-      {
-       "id": "move"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "removeTree"
+       "id": "details",
+       "properties": {
+        "color": {
+         "id": "color",
+         "required": true,
+         "type": [
+          "ColorArray",
+          "string"
+         ]
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.browserAction",
-     "methods": [
+     "id": "setBadgeText",
+     "items": [
       {
-       "id": "setTitle"
-      },
-      {
-       "id": "getTitle"
-      },
-      {
-       "id": "setIcon"
-      },
-      {
-       "id": "setPopup"
-      },
-      {
-       "id": "getPopup"
-      },
-      {
-       "id": "setBadgeText"
-      },
-      {
-       "id": "getBadgeText"
-      },
-      {
-       "id": "setBadgeBackgroundColor"
-      },
-      {
-       "id": "getBadgeBackgroundColor"
-      },
-      {
-       "id": "enable"
-      },
-      {
-       "id": "disable"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        },
+        "text": {
+         "id": "text",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "object"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.browsingData",
-     "methods": [
+     "id": "setTitle",
+     "items": [
       {
-       "id": "settings"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "removeAppcache"
-      },
-      {
-       "id": "removeCache"
-      },
-      {
-       "id": "removeCookies"
-      },
-      {
-       "id": "removeDownloads"
-      },
-      {
-       "id": "removeFileSystems"
-      },
-      {
-       "id": "removeFormData"
-      },
-      {
-       "id": "removeHistory"
-      },
-      {
-       "id": "removeIndexedDB"
-      },
-      {
-       "id": "removeLocalStorage"
-      },
-      {
-       "id": "removePluginData"
-      },
-      {
-       "id": "removePasswords"
-      },
-      {
-       "id": "removeWebSQL"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        },
+        "title": {
+         "id": "title",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "object"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.commands",
-     "methods": [
+     "id": "getBadgeText",
+     "items": [
       {
-       "id": "getAll"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "result": {
+         "id": "result",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "function"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.contentSettings",
-     "methods": [
+     "id": "setPopup",
+     "items": [
       {
-       "id": "clear"
-      },
-      {
-       "id": "get"
-      },
-      {
-       "id": "set"
-      },
-      {
-       "id": "getResourceIdentifiers"
+       "id": "details",
+       "properties": {
+        "popup": {
+         "id": "popup",
+         "required": true,
+         "type": "string"
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.contextMenus",
-     "methods": [
+     "id": "disable",
+     "items": [
       {
-       "id": "create"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "removeAll"
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.cookies",
-     "methods": [
+     "id": "getTitle",
+     "items": [
       {
-       "id": "get"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       },
       {
-       "id": "getAll"
-      },
-      {
-       "id": "set"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "getAllCookieStores"
+       "id": "callback",
+       "properties": {
+        "result": {
+         "id": "result",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "function"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.debugger",
-     "methods": [
+     "id": "getBadgeBackgroundColor",
+     "items": [
       {
-       "id": "attach"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       },
       {
-       "id": "detach"
-      },
-      {
-       "id": "sendCommand"
-      },
-      {
-       "id": "getTargets"
+       "id": "callback",
+       "properties": {
+        "result": {
+         "id": "result",
+         "required": true,
+         "type": "ColorArray"
+        }
+       },
+       "required": true,
+       "type": "function"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.declarativeWebRequest",
-     "methods": []
-    },
-    {
-     "id": "chrome.devtools.inspectedWindow",
-     "methods": [
+     "id": "getPopup",
+     "items": [
       {
-       "id": "getContent"
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       },
       {
-       "id": "setContent"
-      },
-      {
-       "id": "eval"
-      },
-      {
-       "id": "reload"
-      },
-      {
-       "id": "getResources"
+       "id": "callback",
+       "properties": {
+        "result": {
+         "id": "result",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "function"
       }
-     ]
+     ],
+     "type": "functionArguments"
     },
     {
-     "id": "chrome.devtools.network",
-     "methods": [
+     "id": "setIcon",
+     "items": [
       {
-       "id": "getContent"
+       "id": "details",
+       "properties": {
+        "imageData": {
+         "id": "imageData",
+         "required": false,
+         "type": [
+          "ImageDataType",
+          "object"
+         ]
+        },
+        "path": {
+         "id": "path",
+         "required": false,
+         "type": [
+          "string",
+          "object"
+         ]
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
       },
       {
-       "id": "getHAR"
+       "id": "callback",
+       "required": false,
+       "type": "function"
       }
-     ]
-    },
-    {
-     "id": "chrome.devtools.panels",
-     "methods": [
-      {
-       "id": "createSidebarPane"
-      },
-      {
-       "id": "createStatusBarButton"
-      },
-      {
-       "id": "setHeight"
-      },
-      {
-       "id": "setExpression"
-      },
-      {
-       "id": "setObject"
-      },
-      {
-       "id": "setPage"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "create"
-      },
-      {
-       "id": "setOpenResourceHandler"
-      }
-     ]
-    },
-    {
-     "id": "chrome.downloads",
-     "methods": [
-      {
-       "id": "download"
-      },
-      {
-       "id": "search"
-      },
-      {
-       "id": "pause"
-      },
-      {
-       "id": "resume"
-      },
-      {
-       "id": "cancel"
-      },
-      {
-       "id": "getFileIcon"
-      },
-      {
-       "id": "open"
-      },
-      {
-       "id": "show"
-      },
-      {
-       "id": "showDefaultFolder"
-      },
-      {
-       "id": "erase"
-      },
-      {
-       "id": "removeFile"
-      },
-      {
-       "id": "acceptDanger"
-      },
-      {
-       "id": "drag"
-      },
-      {
-       "id": "setShelfEnabled"
-      }
-     ]
-    },
-    {
-     "id": "chrome.events",
-     "methods": [
-      {
-       "id": "addListener"
-      },
-      {
-       "id": "removeListener"
-      },
-      {
-       "id": "hasListener"
-      },
-      {
-       "id": "hasListeners"
-      },
-      {
-       "id": "addRules"
-      },
-      {
-       "id": "getRules"
-      },
-      {
-       "id": "removeRules"
-      }
-     ]
-    },
-    {
-     "id": "chrome.extension",
-     "methods": [
-      {
-       "id": "getURL"
-      },
-      {
-       "id": "getViews"
-      },
-      {
-       "id": "getBackgroundPage"
-      },
-      {
-       "id": "isAllowedIncognitoAccess"
-      },
-      {
-       "id": "isAllowedFileSchemeAccess"
-      },
-      {
-       "id": "setUpdateUrlData"
-      }
-     ]
-    },
-    {
-     "id": "chrome.fileBrowserHandler",
-     "methods": [
-      {
-       "id": "selectFile"
-      }
-     ]
-    },
-    {
-     "id": "chrome.fontSettings",
-     "methods": [
-      {
-       "id": "clearFont"
-      },
-      {
-       "id": "getFont"
-      },
-      {
-       "id": "setFont"
-      },
-      {
-       "id": "getFontList"
-      },
-      {
-       "id": "clearDefaultFontSize"
-      },
-      {
-       "id": "getDefaultFontSize"
-      },
-      {
-       "id": "setDefaultFontSize"
-      },
-      {
-       "id": "clearDefaultFixedFontSize"
-      },
-      {
-       "id": "getDefaultFixedFontSize"
-      },
-      {
-       "id": "setDefaultFixedFontSize"
-      },
-      {
-       "id": "clearMinimumFontSize"
-      },
-      {
-       "id": "getMinimumFontSize"
-      },
-      {
-       "id": "setMinimumFontSize"
-      }
-     ]
-    },
-    {
-     "id": "chrome.history",
-     "methods": [
-      {
-       "id": "search"
-      },
-      {
-       "id": "getVisits"
-      },
-      {
-       "id": "addUrl"
-      },
-      {
-       "id": "deleteUrl"
-      },
-      {
-       "id": "deleteRange"
-      },
-      {
-       "id": "deleteAll"
-      }
-     ]
-    },
-    {
-     "id": "chrome.i18n",
-     "methods": [
-      {
-       "id": "getAcceptLanguages"
-      },
-      {
-       "id": "getMessage"
-      }
-     ]
-    },
-    {
-     "id": "chrome.identity",
-     "methods": [
-      {
-       "id": "getAuthToken"
-      },
-      {
-       "id": "removeCachedAuthToken"
-      },
-      {
-       "id": "launchWebAuthFlow"
-      }
-     ]
-    },
-    {
-     "id": "chrome.idle",
-     "methods": [
-      {
-       "id": "queryState"
-      },
-      {
-       "id": "setDetectionInterval"
-      }
-     ]
-    },
-    {
-     "id": "chrome.infobars",
-     "methods": [
-      {
-       "id": "show"
-      }
-     ]
-    },
-    {
-     "id": "chrome.input.ime",
-     "methods": [
-      {
-       "id": "setComposition"
-      },
-      {
-       "id": "clearComposition"
-      },
-      {
-       "id": "commitText"
-      },
-      {
-       "id": "setCandidateWindowProperties"
-      },
-      {
-       "id": "setCandidates"
-      },
-      {
-       "id": "setCursorPosition"
-      },
-      {
-       "id": "setMenuItems"
-      },
-      {
-       "id": "updateMenuItems"
-      },
-      {
-       "id": "deleteSurroundingText"
-      },
-      {
-       "id": "keyEventHandled"
-      }
-     ]
-    },
-    {
-     "id": "chrome.location",
-     "methods": [
-      {
-       "id": "watchLocation"
-      },
-      {
-       "id": "clearWatch"
-      }
-     ]
-    },
-    {
-     "id": "chrome.management",
-     "methods": [
-      {
-       "id": "getAll"
-      },
-      {
-       "id": "get"
-      },
-      {
-       "id": "getPermissionWarningsById"
-      },
-      {
-       "id": "getPermissionWarningsByManifest"
-      },
-      {
-       "id": "setEnabled"
-      },
-      {
-       "id": "uninstall"
-      },
-      {
-       "id": "uninstallSelf"
-      },
-      {
-       "id": "launchApp"
-      }
-     ]
-    },
-    {
-     "id": "chrome.notifications",
-     "methods": [
-      {
-       "id": "create"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "clear"
-      },
-      {
-       "id": "getAll"
-      }
-     ]
-    },
-    {
-     "id": "chrome.omnibox",
-     "methods": [
-      {
-       "id": "setDefaultSuggestion"
-      }
-     ]
-    },
-    {
-     "id": "chrome.pageAction",
-     "methods": [
-      {
-       "id": "show"
-      },
-      {
-       "id": "hide"
-      },
-      {
-       "id": "setTitle"
-      },
-      {
-       "id": "getTitle"
-      },
-      {
-       "id": "setIcon"
-      },
-      {
-       "id": "setPopup"
-      },
-      {
-       "id": "getPopup"
-      }
-     ]
-    },
-    {
-     "id": "chrome.pageCapture",
-     "methods": [
-      {
-       "id": "saveAsMHTML"
-      }
-     ]
-    },
-    {
-     "id": "chrome.permissions",
-     "methods": [
-      {
-       "id": "getAll"
-      },
-      {
-       "id": "contains"
-      },
-      {
-       "id": "request"
-      },
-      {
-       "id": "remove"
-      }
-     ]
-    },
-    {
-     "id": "chrome.power",
-     "methods": [
-      {
-       "id": "requestKeepAwake"
-      },
-      {
-       "id": "releaseKeepAwake"
-      }
-     ]
-    },
-    {
-     "id": "chrome.privacy",
-     "methods": []
-    },
-    {
-     "id": "chrome.processes",
-     "methods": [
-      {
-       "id": "terminate"
-      },
-      {
-       "id": "getProcessIdForTab"
-      },
-      {
-       "id": "getProcessInfo"
-      }
-     ]
-    },
-    {
-     "id": "chrome.proxy",
-     "methods": []
-    },
-    {
-     "id": "chrome.pushMessaging",
-     "methods": [
-      {
-       "id": "getChannelId"
-      }
-     ]
-    },
-    {
-     "id": "chrome.runtime",
-     "methods": [
-      {
-       "id": "getBackgroundPage"
-      },
-      {
-       "id": "getManifest"
-      },
-      {
-       "id": "getURL"
-      },
-      {
-       "id": "setUninstallUrl"
-      },
-      {
-       "id": "reload"
-      },
-      {
-       "id": "requestUpdateCheck"
-      },
-      {
-       "id": "connect"
-      },
-      {
-       "id": "connectNative"
-      },
-      {
-       "id": "sendMessage"
-      },
-      {
-       "id": "sendNativeMessage"
-      },
-      {
-       "id": "getPlatformInfo"
-      },
-      {
-       "id": "getPackageDirectoryEntry"
-      }
-     ]
-    },
-    {
-     "id": "chrome.scriptBadge",
-     "methods": [
-      {
-       "id": "setPopup"
-      },
-      {
-       "id": "getPopup"
-      },
-      {
-       "id": "getAttention"
-      }
-     ]
-    },
-    {
-     "id": "chrome.sessions",
-     "methods": [
-      {
-       "id": "getRecentlyClosed"
-      },
-      {
-       "id": "getDevices"
-      },
-      {
-       "id": "restore"
-      }
-     ]
-    },
-    {
-     "id": "chrome.signedInDevices",
-     "methods": [
-      {
-       "id": "get"
-      }
-     ]
-    },
-    {
-     "id": "chrome.storage",
-     "methods": [
-      {
-       "id": "get"
-      },
-      {
-       "id": "getBytesInUse"
-      },
-      {
-       "id": "set"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "clear"
-      }
-     ]
-    },
-    {
-     "id": "chrome.system.cpu",
-     "methods": [
-      {
-       "id": "getInfo"
-      }
-     ]
-    },
-    {
-     "id": "chrome.system.memory",
-     "methods": [
-      {
-       "id": "getInfo"
-      }
-     ]
-    },
-    {
-     "id": "chrome.system.storage",
-     "methods": [
-      {
-       "id": "getInfo"
-      },
-      {
-       "id": "ejectDevice"
-      }
-     ]
-    },
-    {
-     "id": "chrome.tabCapture",
-     "methods": [
-      {
-       "id": "capture"
-      },
-      {
-       "id": "getCapturedTabs"
-      }
-     ]
-    },
-    {
-     "id": "chrome.tabs",
-     "methods": [
-      {
-       "id": "get"
-      },
-      {
-       "id": "getCurrent"
-      },
-      {
-       "id": "connect"
-      },
-      {
-       "id": "sendMessage"
-      },
-      {
-       "id": "create"
-      },
-      {
-       "id": "duplicate"
-      },
-      {
-       "id": "query"
-      },
-      {
-       "id": "highlight"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "move"
-      },
-      {
-       "id": "reload"
-      },
-      {
-       "id": "remove"
-      },
-      {
-       "id": "detectLanguage"
-      },
-      {
-       "id": "captureVisibleTab"
-      },
-      {
-       "id": "executeScript"
-      },
-      {
-       "id": "insertCSS"
-      }
-     ]
-    },
-    {
-     "id": "chrome.topSites",
-     "methods": [
-      {
-       "id": "get"
-      }
-     ]
-    },
-    {
-     "id": "chrome.tts",
-     "methods": [
-      {
-       "id": "speak"
-      },
-      {
-       "id": "stop"
-      },
-      {
-       "id": "pause"
-      },
-      {
-       "id": "resume"
-      },
-      {
-       "id": "isSpeaking"
-      },
-      {
-       "id": "getVoices"
-      }
-     ]
-    },
-    {
-     "id": "chrome.ttsEngine",
-     "methods": []
-    },
-    {
-     "id": "chrome.types",
-     "methods": [
-      {
-       "id": "get"
-      },
-      {
-       "id": "set"
-      },
-      {
-       "id": "clear"
-      }
-     ]
-    },
-    {
-     "id": "chrome.webNavigation",
-     "methods": [
-      {
-       "id": "getFrame"
-      },
-      {
-       "id": "getAllFrames"
-      }
-     ]
-    },
-    {
-     "id": "chrome.webRequest",
-     "methods": [
-      {
-       "id": "handlerBehaviorChanged"
-      }
-     ]
-    },
-    {
-     "id": "chrome.webstore",
-     "methods": [
-      {
-       "id": "install"
-      }
-     ]
-    },
-    {
-     "id": "chrome.windows",
-     "methods": [
-      {
-       "id": "get"
-      },
-      {
-       "id": "getCurrent"
-      },
-      {
-       "id": "getLastFocused"
-      },
-      {
-       "id": "getAll"
-      },
-      {
-       "id": "create"
-      },
-      {
-       "id": "update"
-      },
-      {
-       "id": "remove"
-      }
-     ]
+     ],
+     "type": "functionArguments"
     }
    ]
+  },
+  {
+   "id": "chrome.cookies",
+   "types": [
+    {
+     "id": "Cookie",
+     "properties": {
+      "domain": {
+       "id": "domain",
+       "required": true,
+       "type": "string"
+      },
+      "expirationDate": {
+       "id": "expirationDate",
+       "required": false,
+       "type": "double"
+      },
+      "hostOnly": {
+       "id": "hostOnly",
+       "required": true,
+       "type": "boolean"
+      },
+      "httpOnly": {
+       "id": "httpOnly",
+       "required": true,
+       "type": "boolean"
+      },
+      "name": {
+       "id": "name",
+       "required": true,
+       "type": "string"
+      },
+      "path": {
+       "id": "path",
+       "required": true,
+       "type": "string"
+      },
+      "secure": {
+       "id": "secure",
+       "required": true,
+       "type": "boolean"
+      },
+      "session": {
+       "id": "session",
+       "required": true,
+       "type": "boolean"
+      },
+      "storeId": {
+       "id": "storeId",
+       "required": true,
+       "type": "string"
+      },
+      "value": {
+       "id": "value",
+       "required": true,
+       "type": "string"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "CookieStore",
+     "properties": {
+      "id": {
+       "id": "id",
+       "required": true,
+       "type": "string"
+      },
+      "tabIds": {
+       "id": "tabIds",
+       "required": true,
+       "type": {
+        "items": "integer",
+        "type": "array"
+       }
+      }
+     },
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "getAll",
+     "items": [
+      {
+       "id": "details",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getAllCookieStores",
+     "items": [
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "set",
+     "items": [
+      {
+       "id": "details",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "remove",
+     "items": [
+      {
+       "id": "details",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "get",
+     "items": [
+      {
+       "id": "details",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.extension",
+   "types": [
+    {
+     "id": "MessageSender",
+     "properties": {
+      "id": {
+       "id": "id",
+       "required": true,
+       "type": "string"
+      },
+      "tab": {
+       "id": "tab",
+       "required": false,
+       "type": "tabs.Tab"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "Port",
+     "properties": {
+      "name": {
+       "id": "name",
+       "required": true,
+       "type": "string"
+      },
+      "onDisconnect": {
+       "id": "onDisconnect",
+       "required": true,
+       "type": "events.Event"
+      },
+      "onMessage": {
+       "id": "onMessage",
+       "required": true,
+       "type": "events.Event"
+      },
+      "postMessage": {
+       "id": "postMessage",
+       "required": true,
+       "type": "function"
+      },
+      "sender": {
+       "id": "sender",
+       "required": false,
+       "type": "MessageSender"
+      }
+     },
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "connect",
+     "items": [
+      {
+       "id": "extensionId",
+       "required": false,
+       "type": "string"
+      },
+      {
+       "id": "connectInfo",
+       "properties": {
+        "name": {
+         "id": "name",
+         "required": false,
+         "type": "string"
+        }
+       },
+       "required": false,
+       "type": "object"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "sendMessage",
+     "items": [
+      {
+       "id": "extensionId",
+       "required": false,
+       "type": "string"
+      },
+      {
+       "id": "message",
+       "required": true,
+       "type": "any"
+      },
+      {
+       "id": "responseCallback",
+       "properties": {
+        "response": {
+         "id": "response",
+         "required": true,
+         "type": "any"
+        }
+       },
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getURL",
+     "items": [
+      {
+       "id": "path",
+       "required": true,
+       "type": "string"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getViews",
+     "items": [
+      {
+       "id": "fetchProperties",
+       "properties": {
+        "type": {
+         "id": "type",
+         "required": false,
+         "type": {
+          "enum": [
+           "tab",
+           "infobar",
+           "notification",
+           "popup"
+          ],
+          "type": "enumerated string"
+         }
+        },
+        "windowId": {
+         "id": "windowId",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": false,
+       "type": "object"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getBackgroundPage",
+     "items": [],
+     "type": "functionArguments"
+    },
+    {
+     "id": "isAllowedIncognitoAccess",
+     "items": [
+      {
+       "id": "callback",
+       "properties": {
+        "isAllowedAccess": {
+         "id": "isAllowedAccess",
+         "required": true,
+         "type": "boolean"
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "isAllowedFileSchemeAccess",
+     "items": [
+      {
+       "id": "callback",
+       "properties": {
+        "isAllowedAccess": {
+         "id": "isAllowedAccess",
+         "required": true,
+         "type": "boolean"
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "setUpdateUrlData",
+     "items": [
+      {
+       "id": "data",
+       "required": true,
+       "type": "string"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.i18n",
+   "methods": [
+    {
+     "id": "getAcceptLanguages",
+     "items": [
+      {
+       "id": "callback",
+       "properties": {
+        "languages": {
+         "id": "languages",
+         "required": true,
+         "type": {
+          "items": "string",
+          "type": "array"
+         }
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getMessage",
+     "items": [
+      {
+       "id": "messageName",
+       "required": true,
+       "type": "string"
+      },
+      {
+       "id": "substitutions",
+       "required": false,
+       "type": "any"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.pageAction",
+   "types": [
+    {
+     "id": "ImageDataType",
+     "type": "imagedata"
+    }
+   ],
+   "methods": [
+    {
+     "id": "show",
+     "items": [
+      {
+       "id": "tabId",
+       "required": true,
+       "type": "integer"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "hide",
+     "items": [
+      {
+       "id": "tabId",
+       "required": true,
+       "type": "integer"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "setTitle",
+     "items": [
+      {
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": true,
+         "type": "integer"
+        },
+        "title": {
+         "id": "title",
+         "required": true,
+         "type": "string"
+        }
+       },
+       "required": true,
+       "type": "object"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getTitle",
+     "items": [
+      {
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": true,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "setIcon",
+     "items": [
+      {
+       "id": "details",
+       "properties": {
+        "imageData": {
+         "id": "imageData",
+         "required": false,
+         "type": [
+          "ImageDataType",
+          "object"
+         ]
+        },
+        "path": {
+         "id": "path",
+         "required": false,
+         "type": [
+          "string",
+          "object"
+         ]
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": true,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "setPopup",
+     "items": [
+      {
+       "id": "details",
+       "properties": {
+        "popup": {
+         "id": "popup",
+         "required": true,
+         "type": "string"
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": true,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getPopup",
+     "items": [
+      {
+       "id": "details",
+       "properties": {
+        "tabId": {
+         "id": "tabId",
+         "required": true,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.storage",
+   "types": [
+    {
+     "id": "StorageChange",
+     "properties": {
+      "newValue": {
+       "id": "newValue",
+       "required": false,
+       "type": "any"
+      },
+      "oldValue": {
+       "id": "oldValue",
+       "required": false,
+       "type": "any"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "StorageArea",
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "get",
+     "items": [
+      {
+       "id": "keys",
+       "type": [
+        "string",
+        {
+         "items": "string",
+         "type": "array"
+        },
+        "object"
+       ]
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getBytesInUse",
+     "items": [
+      {
+       "id": "keys",
+       "type": [
+        "string",
+        {
+         "items": "string",
+         "type": "array"
+        }
+       ]
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "set",
+     "items": [
+      {
+       "id": "items",
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "remove",
+     "items": [
+      {
+       "id": "keys",
+       "type": [
+        "string",
+        {
+         "items": "string",
+         "type": "array"
+        }
+       ]
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "clear",
+     "items": [
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.tabs",
+   "types": [
+    {
+     "id": "Tab",
+     "properties": {
+      "active": {
+       "id": "active",
+       "required": true,
+       "type": "boolean"
+      },
+      "favIconUrl": {
+       "id": "favIconUrl",
+       "required": false,
+       "type": "string"
+      },
+      "highlighted": {
+       "id": "highlighted",
+       "required": true,
+       "type": "boolean"
+      },
+      "id": {
+       "id": "id",
+       "required": true,
+       "type": "integer"
+      },
+      "incognito": {
+       "id": "incognito",
+       "required": true,
+       "type": "boolean"
+      },
+      "index": {
+       "id": "index",
+       "required": true,
+       "type": "integer"
+      },
+      "openerTabId": {
+       "id": "openerTabId",
+       "required": false,
+       "type": "integer"
+      },
+      "pinned": {
+       "id": "pinned",
+       "required": true,
+       "type": "boolean"
+      },
+      "status": {
+       "id": "status",
+       "required": false,
+       "type": "string"
+      },
+      "title": {
+       "id": "title",
+       "required": false,
+       "type": "string"
+      },
+      "url": {
+       "id": "url",
+       "required": true,
+       "type": "string"
+      },
+      "windowId": {
+       "id": "windowId",
+       "required": true,
+       "type": "integer"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "InjectDetails",
+     "properties": {
+      "allFrames": {
+       "id": "allFrames",
+       "required": false,
+       "type": "boolean"
+      },
+      "code": {
+       "id": "code",
+       "required": false,
+       "type": "string"
+      },
+      "file": {
+       "id": "file",
+       "required": false,
+       "type": "string"
+      },
+      "runAt": {
+       "id": "runAt",
+       "required": false,
+       "type": {
+        "enum": [
+         "document_start",
+         "document_end",
+         "document_idle"
+        ],
+        "type": "enumerated string"
+       }
+      }
+     },
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "executeScript",
+     "items": [
+      {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "details",
+       "required": true,
+       "type": "InjectDetails"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "get",
+     "items": [
+      {
+       "id": "tabId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getCurrent",
+     "items": [
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "create",
+     "items": [
+      {
+       "id": "createProperties",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "move",
+     "items": [
+      {
+       "id": "tabIds",
+       "required": true,
+       "type": [
+        {
+         "items": "integer",
+         "type": "array"
+        },
+        "integer"
+       ]
+      },
+      {
+       "id": "moveProperties",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "update",
+     "items": [
+      {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "updateProperties",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "remove",
+     "items": [
+      {
+       "id": "tabIds",
+       "required": true,
+       "type": [
+        {
+         "items": "integer",
+         "type": "array"
+        },
+        "integer"
+       ]
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "captureVisibleTab",
+     "items": [
+      {
+       "id": "windowId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "options",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "reload",
+     "items": [
+      {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "reloadProperties",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "sendMessage",
+     "items": [
+      {
+       "id": "tabId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "message",
+       "required": true,
+       "type": "any"
+      },
+      {
+       "id": "responseCallback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "connect",
+     "items": [
+      {
+       "id": "tabId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "connectInfo",
+       "required": false,
+       "type": "object"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "insertCSS",
+     "items": [
+      {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "details",
+       "required": true,
+       "type": "InjectDetails"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "highlight",
+     "items": [
+      {
+       "id": "highlightInfo",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "query",
+     "items": [
+      {
+       "id": "queryInfo",
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "detectLanguage",
+     "items": [
+      {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.webRequest",
+   "types": [
+    {
+     "id": "RequestFilter",
+     "properties": {
+      "tabId": {
+       "id": "tabId",
+       "required": false,
+       "type": "integer"
+      },
+      "types": {
+       "id": "types",
+       "required": false,
+       "items": {
+        "enum": [
+         "main_frame",
+         "sub_frame",
+         "stylesheet",
+         "script",
+         "image",
+         "object",
+         "xmlhttprequest",
+         "other"
+        ],
+        "type": "enumerated string"
+       },
+       "type": "array"
+      },
+      "urls": {
+       "id": "urls",
+       "required": true,
+       "type": {
+        "items": "string",
+        "type": "array"
+       }
+      },
+      "windowId": {
+       "id": "windowId",
+       "required": false,
+       "type": "integer"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "HttpHeaders",
+     "type": {
+      "items": "object",
+      "type": "array"
+     }
+    },
+    {
+     "id": "BlockingResponse",
+     "properties": {
+      "authCredentials": {
+       "id": "authCredentials",
+       "required": false,
+       "type": "object"
+      },
+      "cancel": {
+       "id": "cancel",
+       "required": false,
+       "type": "boolean"
+      },
+      "redirectUrl": {
+       "id": "redirectUrl",
+       "required": false,
+       "type": "string"
+      },
+      "requestHeaders": {
+       "id": "requestHeaders",
+       "required": false,
+       "type": "HttpHeaders"
+      },
+      "responseHeaders": {
+       "id": "responseHeaders",
+       "required": false,
+       "type": "HttpHeaders"
+      }
+     },
+     "type": "object"
+    },
+    {
+     "id": "UploadData",
+     "properties": {
+      "bytes": {
+       "id": "bytes",
+       "required": false,
+       "type": "any"
+      },
+      "file": {
+       "id": "file",
+       "required": false,
+       "type": "string"
+      }
+     },
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "handlerBehaviorChanged",
+     "items": [
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "webRequestEventInvoke",
+     "items": [
+      {
+       "id": "eventName",
+       "required": true,
+       "type": "string"
+      },
+      {
+       "id": "callback",
+       "required": true,
+       "type": "function"
+      },
+      {
+       "id": "filter",
+       "required": true,
+       "type": "RequestFilter"
+      },
+      {
+       "id": "opt_extraInfoSpec",
+       "required": false,
+       "type": {
+        "items": "string",
+        "type": "array"
+       }
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  },
+  {
+   "id": "chrome.windows",
+   "types": [
+    {
+     "id": "Window",
+     "properties": {
+      "alwaysOnTop": {
+       "id": "alwaysOnTop",
+       "required": true,
+       "type": "boolean"
+      },
+      "focused": {
+       "id": "focused",
+       "required": true,
+       "type": "boolean"
+      },
+      "height": {
+       "id": "height",
+       "required": true,
+       "type": "integer"
+      },
+      "id": {
+       "id": "id",
+       "required": true,
+       "type": "integer"
+      },
+      "incognito": {
+       "id": "incognito",
+       "required": true,
+       "type": "boolean"
+      },
+      "left": {
+       "id": "left",
+       "required": true,
+       "type": "integer"
+      },
+      "state": {
+       "id": "state",
+       "required": true,
+       "type": {
+        "enum": [
+         "normal",
+         "minimized",
+         "maximized",
+         "fullscreen"
+        ],
+        "type": "enumerated string"
+       }
+      },
+      "tabs": {
+       "id": "tabs",
+       "required": false,
+       "type": {
+        "items": "tabs.Tab",
+        "type": "array"
+       }
+      },
+      "top": {
+       "id": "top",
+       "required": true,
+       "type": "integer"
+      },
+      "type": {
+       "id": "type",
+       "required": true,
+       "type": {
+        "enum": [
+         "normal",
+         "popup",
+         "panel",
+         "app"
+        ],
+        "type": "enumerated string"
+       }
+      },
+      "width": {
+       "id": "width",
+       "required": true,
+       "type": "integer"
+      }
+     },
+     "type": "object"
+    }
+   ],
+   "methods": [
+    {
+     "id": "get",
+     "items": [
+      {
+       "id": "windowId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "getInfo",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "window": {
+         "id": "window",
+         "required": true,
+         "type": "Window"
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getCurrent",
+     "items": [
+      {
+       "id": "getInfo",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "window": {
+         "id": "window",
+         "required": true,
+         "type": "Window"
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "create",
+     "items": [
+      {
+       "id": "createData",
+       "properties": {
+        "focused": {
+         "id": "focused",
+         "required": false,
+         "type": "boolean"
+        },
+        "height": {
+         "id": "height",
+         "required": false,
+         "type": "integer"
+        },
+        "incognito": {
+         "id": "incognito",
+         "required": false,
+         "type": "boolean"
+        },
+        "left": {
+         "id": "left",
+         "required": false,
+         "type": "integer"
+        },
+        "tabId": {
+         "id": "tabId",
+         "required": false,
+         "type": "integer"
+        },
+        "top": {
+         "id": "top",
+         "required": false,
+         "type": "integer"
+        },
+        "type": {
+         "id": "type",
+         "required": false,
+         "type": {
+          "enum": [
+           "normal",
+           "popup",
+           "panel",
+           "detached_panel"
+          ],
+          "type": "enumerated string"
+         }
+        },
+        "url": {
+         "id": "url",
+         "required": false,
+         "type": "string"
+        },
+        "width": {
+         "id": "width",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "window": {
+         "id": "window",
+         "required": false,
+         "type": "Window"
+        }
+       },
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getAll",
+     "items": [
+      {
+       "id": "getInfo",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "windows": {
+         "id": "windows",
+         "required": true,
+         "type": {
+          "items": "Window",
+          "type": "array"
+         }
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "update",
+     "items": [
+      {
+       "id": "windowId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "updateInfo",
+       "properties": {
+        "drawAttention": {
+         "id": "drawAttention",
+         "required": false,
+         "type": "boolean"
+        },
+        "focused": {
+         "id": "focused",
+         "required": false,
+         "type": "boolean"
+        },
+        "height": {
+         "id": "height",
+         "required": false,
+         "type": "integer"
+        },
+        "left": {
+         "id": "left",
+         "required": false,
+         "type": "integer"
+        },
+        "state": {
+         "id": "state",
+         "required": false,
+         "type": {
+          "enum": [
+           "normal",
+           "minimized",
+           "maximized",
+           "fullscreen"
+          ],
+          "type": "enumerated string"
+         }
+        },
+        "top": {
+         "id": "top",
+         "required": false,
+         "type": "integer"
+        },
+        "width": {
+         "id": "width",
+         "required": false,
+         "type": "integer"
+        }
+       },
+       "required": true,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "window": {
+         "id": "window",
+         "required": true,
+         "type": "Window"
+        }
+       },
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "remove",
+     "items": [
+      {
+       "id": "windowId",
+       "required": true,
+       "type": "integer"
+      },
+      {
+       "id": "callback",
+       "required": false,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    },
+    {
+     "id": "getLastFocused",
+     "items": [
+      {
+       "id": "getInfo",
+       "required": false,
+       "type": "object"
+      },
+      {
+       "id": "callback",
+       "properties": {
+        "window": {
+         "id": "window",
+         "required": true,
+         "type": "Window"
+        }
+       },
+       "required": true,
+       "type": "function"
+      }
+     ],
+     "type": "functionArguments"
+    }
+   ]
+  }
+ ]
 })
