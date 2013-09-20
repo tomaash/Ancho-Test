@@ -3,15 +3,23 @@
     <div class="row">
       <div class="span5">
         <h2>Welcome to Tamuly</h2>
-        <div ng-repeat="api in keys(apis)">
-          <h4 ng-click="selectApi(api)"><a>{{ api }}</a></h4>
-          <ul ng-show="selectedApi==api">
-            <li ng-repeat="fun in keys(apis[api])"><a ng-click="selectFun(fun)">{{ fun }}</a></li>
+        <div ng-repeat="api in apis">
+          <h4 ng-click="selectApi($index)"><a>{{ api.id }}</a></h4>
+          <ul ng-show="selectedApi==$index">
+            <li ng-repeat="fun in api.methods"><a ng-click="selectFun($index)">{{ fun.id }}</a></li>
           </ul>
         </div>
       </div>
       <div class="span5">
-        <span>{{ selectedParameters }}</span>
+        <h3>{{ selectedParameters.id }}</h3>
+        <form>
+          <div ng-repeat="par in selectedParameters.items">
+            <h4>{{ par.id }}</h4>
+            <div><b> Properties: </b>{{ par.properties }}</div>
+            <div><b> Type: </b>{{ par.type }}</div>
+            <div><b> Required: </b>{{ par.required }}</div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
