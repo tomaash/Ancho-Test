@@ -1,6 +1,6 @@
 //
 // main background script for angular application
-// this files includes background pages: popup page, options page, welcome page
+// this files includes background pages: main page, options page, welcome page
 //
 requirejs.config(requireConfig);
 

@@ -42,3 +42,8 @@ chrome.runtime.onInstalled.addListener(function(details){
     chrome.tabs.create({url: 'html/application.html#/options'});
   }
 });
+
+chrome.browserAction.onClicked.addListener(function (details) {
+  console.log('main window opened');
+  chrome.tabs.create({url: 'html/application.html#/main'});
+});

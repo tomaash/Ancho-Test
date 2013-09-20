@@ -2,7 +2,7 @@ define(['underscore', 'backgroundHandlers', 'contentHandlers'],
 function(_,            backgroundHandlers,   contentHandlers) {
 
   // Module for request-response message communication between background part
-  // and content script (can be also used from action popup html carefully).
+  // and content script (can be also used from action main html carefully).
   //
   // In given context, initialize request dispatcher. Request is an object with
   // `cmd` string property indicating the command and `args` property (of any

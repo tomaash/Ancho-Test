@@ -20,11 +20,11 @@ define(['angular'],
           {'$scope': $scope, '$location': $location});
       });
     }])
-    // popup controller
-    .controller('PopupControler', ['$scope', '$location',
+    // main controller
+    .controller('MainController', ['$scope', '$location',
       function($scope, $location) {
-        require(['background/controllers/popupctrl'], function(popupctrl) {
-        angular.injector(['ng']).invoke(popupctrl, this,
+        require(['background/controllers/mainctrl'], function(mainctrl) {
+        angular.injector(['ng']).invoke(mainctrl, this,
           {'$scope': $scope, '$location': $location});
       });
     }]);

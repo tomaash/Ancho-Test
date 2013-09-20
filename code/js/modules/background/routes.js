@@ -15,9 +15,9 @@ define(['util/messagingClient', 'angular', 'background/app', 'logging', 'configS
       controller: 'OptionsControler'
     });
 
-    $routeProvider.when(sc.routes.popup, {
-      templateUrl: chrome.extension.getURL('/html/templates/popup.html'),
-      controller: 'PopupControler'
+    $routeProvider.when('/main', {
+      templateUrl: chrome.extension.getURL('/html/templates/main.html'),
+      controller: 'MainController'
     });
 
     $routeProvider.otherwise({redirectTo: sc.routes.login});

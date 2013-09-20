@@ -22,6 +22,6 @@ define({
   routes: {
     options: '/options',
     welcome: '/welcome',
-    popup: '/popup'
+    main: '/main',
   }
 });
