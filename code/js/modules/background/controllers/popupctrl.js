@@ -1,15 +1,10 @@
-define(['util/messagingClient', 'logging'],
-  function (client, logging) {
+define(['util/messagingClient', 'util/ancho', 'logging'],
+  function (client, ancho, logging) {
 
     var log = new logging(true, 'popupctrl', client);
     return ['$scope', '$location', '$http', function ($scope, $location, $http) {
       log.debug('popupctrl started');
-      $scope.apis = [
-        ['Extension', ['sendRequest', 'sendMessage', 'getUrl']],
-        ['Extension1', ['sendRequest1', 'sendMessage', 'getUrl']],
-        ['Extension2', ['sendRequest2', 'sendMessage', 'getUrl']],
-        ['Extension3', ['sendRequest3', 'sendMessage', 'getUrl']]
-      ]
+      $scope.apis = ancho.api;
 
       // some variable for check if angular works ok
       $scope.popup_page = 'Popup page';

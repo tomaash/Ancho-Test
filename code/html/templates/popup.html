@@ -4,9 +4,9 @@
       <div class="span5">
         <h2>Welcome to Tamuly</h2>
         <div ng-repeat="api in apis">
-          <h4 ng-click="selectApi($index)"><a>{{ api[0] }}</a></h4>
+          <h4 ng-click="selectApi($index)"><a>{{ api.id }}</a></h4>
           <ul ng-show="selectedApi==$index">
-            <li ng-repeat="fun in api[1]"><a ng-click="selectFun($index)">{{ fun }}</a></li>
+            <li ng-repeat="fun in api.methods"><a ng-click="selectFun($index)">{{ fun.id }}</a></li>
           </ul>
         </div>
       </div>
