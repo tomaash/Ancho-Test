@@ -1,5 +1,5 @@
 // module for logging
-// from options/popup and bg pages to one bg page
+// from options/main and bg pages to one bg page
 define([], function() {
   var log = function(isContentModule, _moduleName, _client) {
     return {

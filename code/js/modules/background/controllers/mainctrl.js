@@ -1,13 +1,13 @@
 define(['util/messagingClient', 'util/ancho', 'logging'],
   function (client, ancho, logging) {
 
-    var log = new logging(true, 'popupctrl', client);
+    var log = new logging(true, 'mainctrl', client);
     return ['$scope', '$location', '$http', function ($scope, $location, $http) {
-      log.debug('popupctrl started');
+      log.debug('mainctrl started');
       $scope.apis = ancho.api;
 
       // some variable for check if angular works ok
-      $scope.popup_page = 'Popup page';
+      $scope.popup_page = 'Main page';
       $scope.selectedApi = 0;
       $scope.selectApi = function (idx) {
         $scope.selectedApi = idx;
